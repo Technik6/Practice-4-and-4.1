@@ -1,0 +1,94 @@
+package prakt4.Transport;
+
+import prakt4.Transport.Vechile;
+
+public class Car extends Vechile {
+{
+speed = 60;
+maxCapacity = 4;
+pricePerPass = 100;
+}
+
+@Override
+public double countTime(double distance, int pas) {
+if (pas <= maxCapacity) {
+return distance / speed;
+}
+return distance / speed * (2 * ((pas-1) / maxCapacity) + 1);
+}
+
+@Override
+public double countPrice(double pas) {
+return pricePerPass * pas;
+}
+
+}
+package prakt4.Transport;
+
+import prakt4.Transport.Vechile;
+
+public class Plane extends Vechile {
+{
+speed = 200;
+maxCapacity = 200;
+pricePerPass = 10000;
+}
+
+@Override
+public double countTime(double distance, int pas) {
+if (pas <= maxCapacity) {
+return distance / speed;
+}
+return distance / speed * (2 * ((pas-1) / maxCapacity) + 1);
+}
+
+@Override
+public double countPrice(double pas) {
+return pricePerPass * pas;
+}
+}
+package prakt4.Transport;
+
+import prakt4.Transport.Vechile;
+
+public class Ship extends Vechile {
+{
+speed = 80;
+maxCapacity = 100;
+pricePerPass = 5000;
+}
+
+@Override
+public double countTime(double distance, int pas) {
+if (pas <= maxCapacity) {
+return distance / speed;
+}
+return distance / speed * (2 * ((pas-1) / maxCapacity) + 1);
+}
+
+@Override
+public double countPrice(double pas) {
+return pricePerPass * pas;
+}
+}
+package prakt4.Transport;
+
+public class Tester {
+public static void main(String[] args) {
+Car car = new Car();
+Ship ship = new Ship();
+Plane plane = new Plane();
+System.out.println(car.countPrice(6));
+System.out.println(ship.countTime(1000, 100));
+System.out.println(plane.countPrice(60) + " " + plane.countTime(8000, 60));
+}
+}
+package prakt4.Transport;
+
+public abstract class Vechile {
+protected double speed;
+protected double pricePerPass;
+protected double maxCapacity;
+public abstract double countTime(double distance, int pas);
+public abstract double countPrice(double pas);
+}
