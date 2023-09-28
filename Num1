@@ -1,0 +1,53 @@
+package prakt4;
+import java.util.Scanner;
+
+public class zadanie1 {
+// Определение перечисления за пределами метода main
+enum S { Зима, Весна, Лето, Осень };
+float Temp_l = 25;
+float Temp_v = 10;
+float Temp_z = (float) 17.7;
+float Temp_o = 15;
+
+public static void main(String[] args) {
+
+// Использование перечисления
+S season = S.Лето;
+S seaso = S.Весна;
+S seas = S.Зима;
+S sea = S.Осень;
+System.out.println(season +" одно из четырёх времён года, между весной и осенью, характеризующееся наиболее высокой температурой окружающей среды.\nВ день летнего солнцестояния дни самые длинные, а ночи самые короткие.\nТакже в большей части стран лето выступает как самые большие каникулы.");
+Scanner scan = new Scanner(System.in);
+System.out.println("Какое ваше любимое время года?[Пишите название меcяца с большой буквы]");
+String x = scan.nextLine();
+switch ((x))
+{
+case "Зима":
+System.out.println("Я люблю Зиму!\n" + " " + seas + " " + "Средняя температура: -17.7 ");
+System.out.println(getDescription(x));
+break;
+case "Осень":
+System.out.println("Я люблю Осень!\n" + " " + sea+ " " + " " + "Средняя температура: -15 " );
+System.out.println(getDescription(x));
+break;
+case "Весна":
+System.out.println("Я люблю Весну!" + " " + seaso + " " + "Средняя температура: +10 ");
+System.out.println(getDescription(x));
+break;
+case "Лето":
+System.out.println("Я люблю Лето! " + " " + season + " " + " Средняя температура: +25 ");
+System.out.println(getDescription(x));
+break;
+}
+}
+
+public static String getDescription(String x)
+{
+if(x.equals("Лето"))
+{
+return ("Теплое время года ");
+}
+return ("Холодное время года! ");
+}
+
+}
