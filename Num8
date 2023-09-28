@@ -1,0 +1,160 @@
+package prakt4.z8;
+import prakt4.z8.Shape;
+
+public abstract class Circle extends Shape {
+private double radius;
+private String Color;
+private boolean filled;
+public static final double PI = 3.14159265358979323846;
+
+
+
+public Circle(double radius)
+{
+this.radius = radius;
+}
+public double GetRadius(double radius)
+{
+return radius;
+}
+public void SetRadius(double radius)
+{
+this.radius = radius;
+}
+public double getArea(double radius)
+{
+double b = PI * (radius*radius);
+return b;
+
+}
+public double getPerimeter(double radius)
+{
+double c = 2*PI*radius;
+return c;
+}
+public String toString(double radius,double b,double c)
+{
+return("Радиус окружности равен: " + radius + "Площадь окружности равна:" + b + "Периметр окружности равен: " + c);
+}
+}
+package prakt4.z8;
+import prakt4.z8.Shape;
+
+
+public abstract class Rectangle extends Shape {
+private double width;
+private double length;
+private String Color;
+private boolean filled;
+
+
+public Rectangle()
+{
+this.width = width;
+this.length = length;
+}
+
+public double getWidth()
+{
+return width;
+}
+
+public double getLength()
+{
+return length;
+}
+
+public void setLength(double length)
+{
+this.length = length;
+}
+
+public void setWidth(double width)
+{
+this.width = width;
+}
+public double getArea(double width,double length)
+{
+double Area = width * length;
+return Area;
+}
+public double getPerimeter(double width,double length)
+{
+double Perimeter = 2*width*length;
+return Perimeter;
+}
+public String toString(double width,double length,double Area,double Perimeter)
+{
+return("Ширина Прямоугольника равна: " + getWidth() + "Длина Прямоугольника равна: " + getLength() + "Площадь Прямоугольника равна: " + Area + "Периметри Прямоугольника равен: " + Perimeter);
+}
+}
+package prakt4.z8;
+import prakt4.z8.Rectangle;
+import prakt4.z8.Circle;
+import prakt4.z8.Square;
+
+public abstract class Shape {
+protected String color;
+protected boolean filled;
+public Shape(){};
+public Shape(String color, boolean filled){
+this.color = color;
+this.filled = filled;
+};
+
+public String getColor() {
+return color;
+}
+public void setColor(String color) {
+this.color = color;
+}
+public boolean isFilled(){ return filled; }
+public void setFilled(boolean filled) {
+this.filled = filled;
+}
+public abstract double getArea();
+public abstract double getPerimetr();
+
+public String toString() {
+return super.toString();
+}
+
+}
+package prakt4.z8;
+import prakt4.z8.Rectangle;
+
+public abstract class Square extends Rectangle{//extends используется для создания подклассов, которые наследуют свойства и методы из суперклассов
+private double side;
+private String Color;
+private boolean filled;
+private double width;
+private double length;
+
+
+public Square()
+{
+super();
+super.setLength(side);
+}
+
+public double GetSide(double side)
+{
+return side;
+}
+public void SetSide(double side)
+{
+this.side = side;
+}
+public void SetWidth(double side,double width)
+{
+width = side;
+}
+public void SetLength(double side,double length)
+{
+length = side;
+}
+public String toString(double side,double width,double length)
+{
+return("Сторона квадрата равна: " + side + "Ширина квадрата равна: " + width + "Длина квадрата равна: " + length);
+}
+}
